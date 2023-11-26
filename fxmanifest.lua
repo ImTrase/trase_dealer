@@ -20,6 +20,7 @@ server_scripts {
 escrow_ignore { 
     'configuration/**/*.lua',
     'frameworks/*.lua',
+    'server/versions.lua',
     'server/*.lua',
     'client/*.lua',
 }
