@@ -12,16 +12,17 @@ Config.EnableProps = true -- true/false if enabled it will spawn props on the pe
 
 Config.Props = {
     Enabled = true,
+    Duration = 2, -- How long the props stay on the ped (in seconds)
     Prop1 = {
         Model = `prop_weed_bottle`,
         Bone = 57005,
-        Position = {X = 0.13, Y = 0.02, Z = 0.0},
+        Coords = {X = 0.13, Y = 0.02, Z = 0.0},
         Rotation = {XRot = -90.0, YRot = 0, ZRot = 0},
     },
     Prop2 = {
         Model = `hei_prop_heist_cash_pile`,
         Bone = 57005,
-        Position = {X = 0.13, Y = 0.02, Z = 0.0},
+        Coords = {X = 0.13, Y = 0.02, Z = 0.0},
         Rotation = {XRot = -90.0, YRot = 0, ZRot = 0},
     },
 }

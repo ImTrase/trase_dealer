@@ -125,11 +125,11 @@ RegisterNetEvent('trase_dealer:client:selldrug', function(data, SellTime)
                     if Config.Props.Enabled then
                         lib.requestModel(Config.Props.Prop1.Model)
                         object_1 = CreateObject(Config.Props.Prop1.Model, 0, 0, 0, true)
-                        AttachEntityToEntity(object_1, cache.ped, GetPedBoneIndex(cache.ped, Config.Props.Prop1.Bone), Config.Props.Prop1.Offset.x, Config.Props.Prop1.Offset.y, Config.Props.Prop1.Offset.z, Config.Props.Prop1.Rotation.x, Config.Props.Prop1.Rotation.y, Config.Props.Prop1.Rotation.z, false, false, false, false, 2, true)
+                        AttachEntityToEntity(object_1, cache.ped, GetPedBoneIndex(cache.ped, Config.Props.Prop1.Bone), Config.Props.Prop1.Coords.X, Config.Props.Prop1.Coords.Y, Config.Props.Prop1.Coords.Z, Config.Props.Prop1.Rotation.x, Config.Props.Prop1.Rotation.y, Config.Props.Prop1.Rotation.z, false, false, false, false, 2, true)
 
                         lib.requestModel(Config.Props.Prop2.Model)
                         object_2 = CreateObject(Config.Props.Prop2.Model, 0, 0, 0, true)
-                        AttachEntityToEntity(object_2, CreatedPed, GetPedBoneIndex(CreatedPed, Config.Props.Prop2.Bone), Config.Props.Prop2.Offset.x, Config.Props.Prop2.Offset.y, Config.Props.Prop2.Offset.z, Config.Props.Prop2.Rotation.x, Config.Props.Prop2.Rotation.y, Config.Props.Prop2.Rotation.z, false, false, false, false, 2, true)
+                        AttachEntityToEntity(object_2, CreatedPed, GetPedBoneIndex(CreatedPed, Config.Props.Prop2.Bone), Config.Props.Prop2.Coords.X, Config.Props.Prop2.Coords.Y, Config.Props.Prop2.Coords.Z, Config.Props.Prop2.Rotation.x, Config.Props.Prop2.Rotation.y, Config.Props.Prop2.Rotation.z, false, false, false, false, 2, true)
                     end
 
                     play_anim(p_ped, 'mp_common', 'givetake1_a', 8.0, -1, 0)
@@ -139,8 +139,8 @@ RegisterNetEvent('trase_dealer:client:selldrug', function(data, SellTime)
 
                     if Config.Props.Enabled then
                         -- Swap props
-                        AttachEntityToEntity(object_1, CreatedPed, GetPedBoneIndex(CreatedPed, Config.Props.Prop1.Bone), Config.Props.Prop1.Offset.x, Config.Props.Prop1.Offset.y, Config.Props.Prop1.Offset.z, Config.Props.Prop1.Rotation.x, Config.Props.Prop1.Rotation.y, Config.Props.Prop1.Rotation.z, false, false, false, false, 2, true)
-                        AttachEntityToEntity(object_2, cache.ped, GetPedBoneIndex(cache.ped, Config.Props.Prop2.Bone), Config.Props.Prop2.Offset.x, Config.Props.Prop2.Offset.y, Config.Props.Prop2.Offset.z, Config.Props.Prop2.Rotation.x, Config.Props.Prop2.Rotation.y, Config.Props.Prop2.Rotation.z, false, false, false, false, 2, true)
+                        AttachEntityToEntity(object_1, CreatedPed, GetPedBoneIndex(CreatedPed, Config.Props.Prop1.Bone), Config.Props.Prop1.Coords.X, Config.Props.Prop1.Coords.Y, Config.Props.Prop1.Coords.Z, Config.Props.Prop1.Rotation.x, Config.Props.Prop1.Rotation.y, Config.Props.Prop1.Rotation.z, false, false, false, false, 2, true)
+                        AttachEntityToEntity(object_2, cache.ped, GetPedBoneIndex(cache.ped, Config.Props.Prop2.Bone), Config.Props.Prop2.Coords.X, Config.Props.Prop2.Coords.Y, Config.Props.Prop2.Coords.Z, Config.Props.Prop2.Rotation.x, Config.Props.Prop2.Rotation.y, Config.Props.Prop2.Rotation.z, false, false, false, false, 2, true)
                     end
 
                     PlayAmbientSpeech1(CreatedPed, 'GENERIC_THANKS', 'SPEECH_PARAMS_STANDARD')
@@ -151,8 +151,10 @@ RegisterNetEvent('trase_dealer:client:selldrug', function(data, SellTime)
                     CreatedPed = nil
 
                     if Config.Props.Enabled then
-                        DeleteEntity(object_1)
-                        DeleteEntity(object_2)
+                        SetTimeout(Config.Props.Duration * 1000, function()
+                            DeleteEntity(object_1)
+                            DeleteEntity(object_2)
+                        end)
                     end
                 end
             end
