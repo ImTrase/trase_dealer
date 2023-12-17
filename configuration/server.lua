@@ -12,18 +12,18 @@ Config.Command = {
 Config.Drugs = {
     [1] = {
         Label = 'Coke',
-        Item = 'coke_bag',
+        Item = 'water',
         Price = 2000, 
         RequiredAmount = 1,
         DenyChance = 0
     },
-    [2] = {
-        Label = 'Meth',
-        Item = 'meth_bag',
-        Price = 2000, 
-        RequiredAmount = 1,
-        DenyChance = 0
-    },
+    -- [2] = {
+    --     Label = 'Meth',
+    --     Item = 'meth_bag',
+    --     Price = 2000, 
+    --     RequiredAmount = 1,
+    --     DenyChance = 0
+    -- },
 }
 
 Config.Discord = {

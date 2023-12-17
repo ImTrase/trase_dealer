@@ -9,10 +9,16 @@ function GetPlayer(target)
     end
 end
 
-function CountItem(target, item)
+function CountItem(target, itemName)
     local xPlayer = GetPlayer(target)
     if (not xPlayer) then return 0 end
-    return xPlayer.getInventoryItem(item).count or 0
+    local item = xPlayer.getInventoryItem(itemName)
+    if not item then
+        print('^4[Trase_Dealer]^0: ^1[ERROR]^0: The item you specified does not exist in the database.')
+        return 0
+    end
+
+    return item.count or 0
 end
 
 function AddMoney(target, account, amount)

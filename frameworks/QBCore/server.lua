@@ -24,7 +24,7 @@ function AddMoney(target, account, amount)
         local info = { worth  = amount }
         player.Functions.AddItem(account, 1, false, info)
     else
-        player.Functions.AddItem(account, amount)
+        player.Functions.AddMoney(account, amount)
     end
 end
 

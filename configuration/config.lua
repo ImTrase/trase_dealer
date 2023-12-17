@@ -7,7 +7,24 @@ Config.SellCommands = { 'dealer', 'selldrugs', 'trap' } -- Commands that are use
 Config.EnableSelection = true -- Enable the context menu to select the drug IF they have more then 1
 Config.SpawnDistance = 50.0 -- The distance the peds are spawned from the player
 Config.DefaultSellTime = 12 -- Time (in seconds) it takes to sell on level 1
-Config.SellOnlyNight = true -- true/false if enabled it will only allow them to sell at night
+Config.SellOnlyNight = false -- true/false if enabled it will only allow them to sell at night
+Config.EnableProps = true -- true/false if enabled it will spawn props on the peds when selling
+
+Config.Props = {
+    Enabled = true,
+    Prop1 = {
+        Model = `prop_weed_bottle`,
+        Bone = 57005,
+        Position = {X = 0.13, Y = 0.02, Z = 0.0},
+        Rotation = {XRot = -90.0, YRot = 0, ZRot = 0},
+    },
+    Prop2 = {
+        Model = `hei_prop_heist_cash_pile`,
+        Bone = 57005,
+        Position = {X = 0.13, Y = 0.02, Z = 0.0},
+        Rotation = {XRot = -90.0, YRot = 0, ZRot = 0},
+    },
+}
 
 Config.BlacklistedJobs = { -- A list of jobs that cannot do /dealer
     'police',

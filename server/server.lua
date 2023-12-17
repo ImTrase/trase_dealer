@@ -22,7 +22,7 @@ local function SellDrugs(src)
     end
 
     if (Config.SellOnlyNight) then
-        local isNight = lib.callback.await('trase_dealer:client:isNight')
+        local isNight = lib.callback.await('trase_dealer:client:isNight', src)
         if (not isNight) then
             return TriggerClientEvent('trase_dealer:client:notify', src, Config.Strings['NotNight'])
         end
