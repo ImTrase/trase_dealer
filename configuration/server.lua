@@ -11,11 +11,11 @@ Config.Command = {
 
 Config.Drugs = {
     [1] = {
-        Label = 'Coke',
-        Item = 'coke_bag',
+        Label = 'Water',
+        Item = 'water',
         Price = 2000, 
         RequiredAmount = 1,
-        DenyChance = 0
+        DenyChance = 1000
     },
     [2] = {
         Label = 'Meth',

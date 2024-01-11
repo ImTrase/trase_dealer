@@ -100,13 +100,11 @@ RegisterNetEvent('trase_dealer:client:selldrug', function(data, SellTime)
                     
                     local luck = math.random(1, 100)
                     if (luck <= data?.DenyChance) then
-                        PlayAmbientSpeech1(CreatedPed, 'GENERIC_HI', 'SPEECH_PARAMS_STANDARD')
-                        SetPedAsNoLongerNeeded(CreatedPed)
-                        CreatedPed = nil
-                        TriggerServerEvent('trase_dealer:server:alertpolice', GetEntityCoords(cache?.ped))
                         cooldown = false
                         sellingDrugs = false
-                        return SendNotification(Config.DenyStrings[math.random(#Config.DenyStrings)])
+                        local entity = CreatedPed
+                        CreatedPed = nil
+                        return DenySale(entity)
                     end
 
                     if (cache?.vehicle) then

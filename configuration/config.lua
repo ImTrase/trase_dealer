@@ -11,6 +11,12 @@ Config.SellOnlyNight = false -- true/false if enabled it will only allow them to
 Config.EnableProps = true -- true/false if enabled it will spawn props on the peds when selling
 Config.SyncPeds = true -- true/false if enabled it will sync the peds to all players
 
+Config.Agressive = { -- What happens when drug is denied (deny chance is in the drug config [server-sided])
+    Enabled = true,
+    Type = 1, -- 1 = Melee, 2 = Gun (Will select a random weapon from the list below)
+    WeaponList = { `WEAPON_PISTOL`, `WEAPON_COMBATPISTOL` } -- List of weapons to select from (Only used if Type = 2)
+}
+
 Config.Props = {
     Enabled = true,
     Duration = 2, -- How long the props stay on the ped (in seconds)
