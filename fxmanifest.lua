@@ -4,7 +4,7 @@ lua54 'yes'
 
 author 'Trase'
 description 'A FiveM script allowing players to sell drugs.'
-version '1.0.5'
+version '1.0.6'
 
 shared_scripts { '@ox_lib/init.lua', 'configuration/config.lua' }
 
@@ -20,6 +20,4 @@ server_scripts {
 escrow_ignore { 
     'configuration/*.lua',
     'frameworks/**/*.lua',
-    'client/*.lua',
-    'server/*.lua',
 }
