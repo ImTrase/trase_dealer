@@ -43,9 +43,16 @@ Config.BlacklistedLocations = {
     vec4(0.0, 0.0, 0.0, 25.0), -- X, Y, Z, Radius
 }
 
+--------------------------------------------------------------------------------------
+-- Supported Dispatch Systems (server/open.lua to configure and add more)
+-- It will automatically detect if you have one of these installed and use it.
+-- If you don't have any of these installed, it will use the default dispatch system.
+--------------------------------------------------------------------------------------
+
+
 Config.Police = {
     Enabled = true,
-    Job = 'police'
+    Jobs = { 'police' },
 }
 
 Config.DenyStrings = {
@@ -70,6 +77,9 @@ Config.Strings = {
     ['CantSellHere'] = 'You cannot sell drugs here!',
     ['CurrentlyDrugRank'] = 'You are currently rank {DRUG_RANK}, and have sold a total of x{DRUG_TOTALSOLD} drugs!',
     ['NotNight'] = 'You can only sell drugs during night time!',
+    ['Dispatch_Title'] = 'Drug Selling',
+    ['Dispatch_Code'] = '10-32',
+    ['Dispatch_Description'] = 'A suspect has been spotted selling drugs!',
 }
 
 Config.PedModels = { -- List of peds that are selected when selling

@@ -76,9 +76,14 @@ end
 
 function GetActivePolice()
     if (not Config.Police.Enabled) then return end
-    local xPlayers = ESX.GetExtendedPlayers('job', Config.Police.Job)
     local PD = {}
-    for k, v in pairs(xPlayers) do PD[#PD +1] = v.source end
+
+    for i = 1, #Config.Police.Jobs do
+        local job = Config.Police.Jobs[i]
+        local xPlayers = ESX.GetExtendedPlayers('job', Config.Police.Job)
+        for k, v in pairs(xPlayers) do PD[#PD +1] = v.source end
+    end
+
     return PD
 end
 
