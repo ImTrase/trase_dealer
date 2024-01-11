@@ -9,6 +9,7 @@ Config.SpawnDistance = 50.0 -- The distance the peds are spawned from the player
 Config.DefaultSellTime = 12 -- Time (in seconds) it takes to sell on level 1
 Config.SellOnlyNight = false -- true/false if enabled it will only allow them to sell at night
 Config.EnableProps = true -- true/false if enabled it will spawn props on the peds when selling
+Config.SyncPeds = true -- true/false if enabled it will sync the peds to all players
 
 Config.Props = {
     Enabled = true,

@@ -62,7 +62,7 @@ RegisterNetEvent('trase_dealer:client:selldrug', function(data, SellTime)
         return SendNotification(Config.Strings['NoClientFound'])
     end
 
-    CreatedPed = CreatePed(5, model, coords?.x, coords?.y, z, 0.0, false, true)
+    CreatedPed = CreatePed(5, model, coords?.x, coords?.y, z, 0.0, Config.SyncPeds, true)
     PlaceObjectOnGroundProperly(CreatedPed)
     SetEntityAsMissionEntity(CreatedPed)
 
