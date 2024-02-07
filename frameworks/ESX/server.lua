@@ -46,6 +46,8 @@ function CountDrugs(target)
     return result[1].drugssold
 end
 
+exports('CountDrugs', CountDrugs)
+
 function AddDrugCount(target)
     local xPlayer = GetPlayer(target)
     if (not xPlayer) then return end
