@@ -14,8 +14,8 @@ Config.Drugs = {
         Label = 'Water',
         Item = 'water',
         Price = 2000, 
-        RequiredAmount = 1,
-        DenyChance = 1000
+        RequiredAmount = {1, 5}, -- Must have atleast 1 to sale, can sell upto 5. (will pick a # 1-5 randomly)
+        DenyChance = 0
     },
     [2] = {
         Label = 'Meth',

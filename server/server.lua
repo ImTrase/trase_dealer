@@ -32,7 +32,8 @@ local function SellDrugs(src)
     
     for k, v in pairs(Config.Drugs) do
         local Count = CountItem(src, v.Item)
-        if (Count >= v.RequiredAmount) then
+        local AmountRequired = type(v.RequiredAmount) == 'table' and v.RequiredAmount[1] or v.RequiredAmount
+        if (Count >= AmountRequired) then
             v.id = k
             Options[#Options +1] = v
         end
@@ -88,7 +89,8 @@ end
 RegisterNetEvent('trase_dealer:server:selldrug', function(data)
     local src = source
     local Count = CountItem(src, data.Item)
-    if (Count < data.RequiredAmount) then SellingDrugs[src] = nil return end
+    local AmountRequired = type(data.RequiredAmount) == 'table' and data.RequiredAmount[1] or data.RequiredAmount
+    if (Count < AmountRequired) then SellingDrugs[src] = nil return end
 
     local SellAmount = CountDrugs(src)
 
@@ -119,8 +121,17 @@ RegisterNetEvent('trase_dealer:server:selldrug', function(data)
     end
 
     SellingDrugs[src] = nil
+ 
+    local RequiredSale = type(data.RequiredAmount) == 'table' and math.random(data.RequiredAmount[1], data.RequiredAmount[2]) or data.RequiredAmount
+    -- Check if the player has the required amount to sell
+    if (Count < RequiredSale) then
+        RequiredSale = Count
+    end
+
+    SellPrice = SellPrice * RequiredSale
+
     AddMoney(src, Config.PayType, SellPrice)
-    RemoveItem(src, data.Item, data.RequiredAmount)
+    RemoveItem(src, data.Item, RequiredSale)
     TriggerClientEvent('trase_dealer:client:notify', src, Config.Strings['SoldDrug']:gsub('{DRUG_NAME}', data.Label):gsub('{DRUG_PRICE}', SellPrice))
     AddDrugCount(src)
 end)
