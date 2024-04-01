@@ -21,7 +21,7 @@ function AddMoney(target, account, amount)
     local player = QBCore.Functions.GetPlayer(target)
     if (not player) then return end
     if (account == 'markedbills') then
-        local info = { worth  = amount }
+        local info = { worth  = tonumber(amount) }
         player.Functions.AddItem(account, 1, false, info)
     else
         player.Functions.AddMoney(account, amount)
